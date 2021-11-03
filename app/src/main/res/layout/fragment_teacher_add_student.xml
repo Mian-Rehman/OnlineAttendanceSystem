@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeacherAddStudentFrag">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:background="@color/white"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Student Profile"
+                android:gravity="center"
+                android:textColor="@color/Mahroon"
+                android:fontFamily="sans-serif-black"
+                android:textSize="18sp"
+                android:padding="5dp"
+                />
+
+
+
+            <EditText
+                android:id="@+id/ed_name_t"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="First/Last Name"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/Grey"
+                android:textSize="14sp"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="17dp"
+                android:drawableLeft="@drawable/custom_name_signup" />
+
+
+            <EditText
+                android:id="@+id/ed_Id_t"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Student ID"
+                android:textSize="14sp"
+                android:textColorHint="@color/Grey"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="17dp"
+                android:drawableLeft="@drawable/custom_user_icon" />
+
+
+
+            <EditText
+                android:id="@+id/ed_DOB_Teacher"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="DOB"
+                android:inputType="date"
+                android:textColorHint="@color/Grey"
+                android:textSize="14sp"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="17dp"
+                android:drawableLeft="@drawable/custom_date_icon" />
+
+            <EditText
+                android:id="@+id/ed_tech_qual"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textAllCaps="true"
+                android:hint="Qualification"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/Grey"
+                android:textSize="14sp"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="17dp"
+                android:drawableLeft="@drawable/custom_school_icon" />
+
+
+            <EditText
+                android:id="@+id/ed_password_t"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:textSize="14sp"
+                android:textColorHint="@color/Grey"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/custom_password_icon" />
+
+
+
+            <EditText
+                android:id="@+id/ed_confirm_pass_t"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:hint="Confirm Password"
+                android:textSize="14sp"
+                android:textColorHint="@color/Grey"
+                android:textColor="@color/Mahroon"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/custom_confirm_pass" />
+
+
+
+
+            <Button
+                android:id="@+id/btn_Save"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_signup_btn"
+                />
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
