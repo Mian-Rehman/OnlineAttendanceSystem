@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.onlineattendencesystem">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,26 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineAttendenceSystem">
-        <activity android:name=".TeacherForgotScreen"></activity>
-        <activity android:name=".TeacherDashboardScreen" >
-
-        </activity>
-        <activity android:name=".AdminDashboard"></activity>
-        <activity android:name=".AdminLoginScreen" >
-
-        </activity>
-        <activity android:name=".TeacherLoginScreen" >
-
-        </activity>
-        <activity android:name=".StudentLoginScreen" />
-        <activity android:name=".ConfirmScreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StudentDashboard"></activity>
+        <activity android:name=".TeacherForgotScreen" />
+        <activity android:name=".TeacherDashboardScreen"></activity>
+        <activity android:name=".AdminDashboard" />
+        <activity android:name=".AdminLoginScreen"></activity>
+        <activity android:name=".TeacherLoginScreen"></activity>
+        <activity android:name=".StudentLoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ConfirmScreen" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
