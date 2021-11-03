@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.onlineattendencesystem.Model.StudentDataClass;
 import com.example.onlineattendencesystem.Model.TeacherClassData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -86,18 +87,17 @@ public class StudentLoginScreen extends AppCompatActivity {
                             {
                                 if (checkpassword.equals(login_student_password))
                                 {
-                                    TeacherClassData data=snapshot.child(login_StudentId).getValue(TeacherClassData.class);
+                                    StudentDataClass data=snapshot.child(login_StudentId).getValue(StudentDataClass.class);
 
                                     //Save Current Teacher Details
                                     SharedPreferences sp=getSharedPreferences("STUDENT_DATA",MODE_PRIVATE);
                                     SharedPreferences.Editor ed=sp.edit();
 
-                                    ed.putString("studentName",data.getTeacherName());
-                                    ed.putString("studentID",data.getTeacherId());
-                                    ed.putString("studentEmail",data.getTeacherEmail());
-                                    ed.putString("studentDOB",data.getTeacherDateOfBirth());
-                                    ed.putString("studentQualification",data.getTeacherQualification());
-                                    ed.putString("studentPassword",data.getTeacherPassword());
+                                    ed.putString("studentName",data.getStudentName());
+                                    ed.putString("studentID",data.getStudentId());
+                                    ed.putString("studentDOB",data.getStudentDateOfBirth());
+                                    ed.putString("studentQualification",data.getStudentQualification());
+                                    ed.putString("studentPassword",data.getStudentPassword());
                                     ed.apply();
 
                                     Intent dashIntent=new Intent(StudentLoginScreen.this,StudentDashboard.class);
@@ -114,7 +114,7 @@ public class StudentLoginScreen extends AppCompatActivity {
                             }
                             else
                             {
-                                ed_user.setError("incorrect Teacher ID");
+                                ed_user.setError("incorrect Student ID");
                                 ed_user.requestFocus();
                                 ed_user.setText("");
                                 return;

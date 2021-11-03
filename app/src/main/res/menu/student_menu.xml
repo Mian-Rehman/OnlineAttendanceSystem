@@ -3,27 +3,23 @@
 
     <item android:title="My Profile"
         android:icon="@drawable/ic_user_inactive"
-        android:id="@+id/nav_teacher_profile"
+        android:id="@+id/nav_student_profile"
         />
 
     <item android:title="My Attendence"
 
-        android:id="@+id/nav_teacher_attendence"
+        android:id="@+id/nav_student_attendence"
         />
 
-    <item android:title="Add Student Profile"
+    <item android:title="Monthly Attendace"
 
-        android:id="@+id/nav_teacher_addStudent"
+        android:id="@+id/nav_student_MonthAtten"
         />
 
-    <item android:title="Add Student Attendence"
-        android:icon="@drawable/ic_menu_book"
-        android:id="@+id/nav_teacher_stAttendence"
-        />
 
     <item android:title="Logout"
 
-        android:id="@+id/nav_logout"
+        android:id="@+id/nav_Studentlogout"
         />
 
 </menu>

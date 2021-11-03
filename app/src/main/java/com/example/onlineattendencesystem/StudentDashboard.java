@@ -54,36 +54,31 @@ public class StudentDashboard extends AppCompatActivity {
                 {
 
 
-                    case R.id.nav_teacher_profile:
-                    //    temp=new TeacherMyProfileFrag();
-                    //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
+                    case R.id.nav_student_profile:
+                        temp=new StudentProfileFrag();
+                       getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
                         toolbar.setTitle("My Profile");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_teacher_attendence:
-                    //    temp=new TeacherAttendanceScreen();
-                    //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
+                    case R.id.nav_student_attendence:
+                       temp=new StudentAttendanceFrag();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
                         toolbar.setTitle("My Attendence");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_teacher_addStudent:
+                    case R.id.nav_student_MonthAtten:
                     //    temp = new TeacherAddStudentFrag();
                     //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
                         toolbar.setTitle("Add Student Profile");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_teacher_stAttendence:
-                     //   temp = new AddStudentAttFrag();
-                     //   getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("Add Student Attendence");
-                        drayerLayout.closeDrawer(GravityCompat.START);
-                        break;
 
 
-                    case R.id.nav_logout:
+
+                    case R.id.nav_Studentlogout:
                         Toast.makeText(StudentDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
                         Intent logoutIntent=new Intent(StudentDashboard.this,StudentLoginScreen.class);
                         startActivity(logoutIntent);
