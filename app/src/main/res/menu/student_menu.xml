@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="My Profile"
+        android:icon="@drawable/ic_user_inactive"
+        android:id="@+id/nav_teacher_profile"
+        />
+
+    <item android:title="My Attendence"
+
+        android:id="@+id/nav_teacher_attendence"
+        />
+
+    <item android:title="Add Student Profile"
+
+        android:id="@+id/nav_teacher_addStudent"
+        />
+
+    <item android:title="Add Student Attendence"
+        android:icon="@drawable/ic_menu_book"
+        android:id="@+id/nav_teacher_stAttendence"
+        />
+
+    <item android:title="Logout"
+
+        android:id="@+id/nav_logout"
+        />
+
+</menu>
