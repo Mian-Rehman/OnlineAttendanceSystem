@@ -55,7 +55,8 @@ public class TeacherDashboardScreen extends AppCompatActivity {
 
 
                     case R.id.nav_teacher_profile:
-                        Toast.makeText(TeacherDashboardScreen.this, "My Profile", Toast.LENGTH_SHORT).show();
+                        temp=new TeacherMyProfileFrag();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
                         toolbar.setTitle("My Profile");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;

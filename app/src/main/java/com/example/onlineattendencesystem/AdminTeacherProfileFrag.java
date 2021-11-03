@@ -1,5 +1,7 @@
 package com.example.onlineattendencesystem;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -275,8 +277,13 @@ public class AdminTeacherProfileFrag extends Fragment {
                             if (teacherPassword.equals(ed_confirm_pass_t.getText().toString()))
                             {
                                 TeacherClassData access=new TeacherClassData(teacherName,teacherId,teacherEmail,teacherDateOfBirth,teacherQualification,teacherPassword);
+
                                 String key= myRef.child(teacherId).getKey();
                                 myRef.child(key).setValue(access);
+                                SharedPreferences sp=getActivity().getSharedPreferences("Teacher_Key", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor ed=sp.edit();
+                                ed.putString("teacherID",key);
+                                ed.apply();
                                 ed_name_t.setText("");
                                 ed_name_t.requestFocus();
                                 ed_Id_t.setText("");

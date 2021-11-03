@@ -1,6 +1,7 @@
 package com.example.onlineattendencesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.airbnb.lottie.Lottie;
+import com.squareup.picasso.Picasso;
 
 import static java.lang.Thread.sleep;
 
@@ -26,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         text_splash=findViewById(R.id.text_splash);
 
 
+
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         Animation myanimation= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
         text_splash.setAnimation(myanimation);
-
-
 
 
 
@@ -56,3 +58,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
