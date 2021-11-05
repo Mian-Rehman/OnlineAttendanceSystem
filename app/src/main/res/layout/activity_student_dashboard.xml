@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerlayout_student"
+    android:background="@color/white"
     tools:context=".StudentDashboard">
 
     <RelativeLayout
@@ -19,7 +21,7 @@
             />
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/Toolbar"
+            android:id="@+id/toolbar_Student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
@@ -31,14 +33,14 @@
         </com.google.android.material.appbar.MaterialToolbar>
 
         <FrameLayout
-            android:id="@+id/main_frame"
+            android:id="@+id/main_frame_Student"
             android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
-            android:layout_below="@id/Toolbar"
+            android:layout_below="@id/toolbar_Student"
             >
 
 
@@ -50,7 +52,7 @@
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navMenu"
+        android:id="@+id/navMenu_Student"
         android:layout_width="wrap_content"
         android:layout_gravity="start"
         android:layout_height="match_parent"

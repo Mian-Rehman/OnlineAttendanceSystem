@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center|top"
+    android:background="@color/white"
+    tools:context=".OneTimeStudentActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change your Password"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/Mahroon"
+        android:textSize="18sp"
+        android:padding="20dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/tv_student_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Name"
+        android:textColor="@color/Mahroon"
+        android:textSize="18sp"
+        android:padding="10dp"
+
+
+        />
+
+    <EditText
+        android:id="@+id/ed_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Change Password"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:textColorHint="#C4706E6E"
+        android:layout_marginLeft="2dp"
+        android:paddingRight="12dp"
+        android:drawableStart="@drawable/custom_password_icon"
+        android:textSize="12sp"
+        android:drawablePadding="15dp"
+        android:background="@drawable/custom_input"
+        android:textColor="@color/Mahroon"
+        android:drawableLeft="@drawable/custom_password_icon" />
+
+    <EditText
+        android:id="@+id/ed_change_password_con"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:textColorHint="#C4706E6E"
+        android:layout_marginLeft="2dp"
+        android:paddingRight="12dp"
+        android:drawableStart="@drawable/custom_password_icon"
+        android:textSize="12sp"
+        android:drawablePadding="15dp"
+        android:background="@drawable/custom_input"
+        android:textColor="@color/Mahroon"
+        android:drawableLeft="@drawable/custom_password_icon" />
+
+    <Button
+        android:id="@+id/btn_Student_Next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:padding="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_signup_btn"
+        />
+
+</LinearLayout>

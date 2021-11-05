@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.onlineattendencesystem.Model.StudentDataClass;
 import com.example.onlineattendencesystem.Model.TeacherClassData;
@@ -70,7 +71,6 @@ public class StudentLoginScreen extends AppCompatActivity {
 
                 Query checkuser=reference.orderByChild("studentId").equalTo(login_StudentId);
 
-
                 checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -98,11 +98,32 @@ public class StudentLoginScreen extends AppCompatActivity {
                                     ed.putString("studentDOB",data.getStudentDateOfBirth());
                                     ed.putString("studentQualification",data.getStudentQualification());
                                     ed.putString("studentPassword",data.getStudentPassword());
+                                    ed.putString("STUDENT_PRE_ID",login_StudentId);
+                                    ed.putString("STUDENT_PRE_DATABASE_ID",checkteacherId);
                                     ed.apply();
 
-                                    Intent dashIntent=new Intent(StudentLoginScreen.this,StudentDashboard.class);
-                                    startActivity(dashIntent);
-                                    finish();
+                                    SharedPreferences preferences=getSharedPreferences("PREFERENCE",MODE_PRIVATE);
+                                    String FirstTime= preferences.getString("FirstTimeInstall_13","");
+
+
+                                    if (FirstTime.equals("Yes"))
+                                    {
+
+                                     //   Toast.makeText(StudentLoginScreen.this, "Working", Toast.LENGTH_SHORT).show();
+                                        Intent Dashintent=new Intent(StudentLoginScreen.this,StudentDashboard.class);
+                                        startActivity(Dashintent);
+                                        finish();
+                                    }
+                                    else
+                                    {
+                                        SharedPreferences.Editor editor=preferences.edit();
+                                        editor.putString("FirstTimeInstall_13","Yes");
+                                        editor.apply();
+                                        Intent myintent=new Intent(StudentLoginScreen.this,OneTimeStudentActivity.class);
+                                        startActivity(myintent);
+                                        finish();
+                                    }
+
                                 }
                                 else
                                 {

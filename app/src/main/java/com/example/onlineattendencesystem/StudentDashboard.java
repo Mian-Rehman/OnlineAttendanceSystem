@@ -18,9 +18,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class StudentDashboard extends AppCompatActivity {
 
-    NavigationView navMenu;
+    NavigationView navMenu_Student;
     ActionBarDrawerToggle toggle;
-    DrawerLayout drayerLayout;
+    DrawerLayout drawerlayout_student;
 
     Fragment temp=null;
 
@@ -30,68 +30,70 @@ public class StudentDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
 
-        Toolbar toolbar=findViewById(R.id.Toolbar);
-        setSupportActionBar(toolbar);
+        Toolbar toolbar_Student=findViewById(R.id.toolbar_Student);
+        setSupportActionBar(toolbar_Student);
 
-        navMenu=findViewById(R.id.navMenu);
-        drayerLayout=findViewById(R.id.drawerlayout);
+        navMenu_Student=findViewById(R.id.navMenu_Student);
+        drawerlayout_student=findViewById(R.id.drawerlayout_student);
 
-        //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new AdminTeacherProfileFrag()).commit();
+    //   getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new StudentDashHomeFrag()).commit();
 
 
-        toggle=new ActionBarDrawerToggle(this,drayerLayout,toolbar,R.string.app_name,R.string.app_name);
-        drayerLayout.addDrawerListener(toggle);
+        toggle=new ActionBarDrawerToggle(this,drawerlayout_student,toolbar_Student,R.string.app_name,R.string.app_name);
+        drawerlayout_student.addDrawerListener(toggle);
         toggle.syncState();
 
 
-        navMenu.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @SuppressLint("NonConstantResourceId")
+        navMenu_Student.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
 
                 switch (item.getItemId())
                 {
 
-
                     case R.id.nav_student_profile:
                         temp=new StudentProfileFrag();
-                       getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("My Profile");
-                        drayerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
+                        toolbar_Student.setTitle("My Profile");
+                        drawerlayout_student.closeDrawer(GravityCompat.START);
                         break;
+
 
                     case R.id.nav_student_attendence:
-                       temp=new StudentAttendanceFrag();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("My Attendence");
-                        drayerLayout.closeDrawer(GravityCompat.START);
+                        temp=new StudentProfileFrag();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
+                        toolbar_Student.setTitle("My Attendance");
+                        drawerlayout_student.closeDrawer(GravityCompat.START);
                         break;
+
 
                     case R.id.nav_student_MonthAtten:
-                    //    temp = new TeacherAddStudentFrag();
-                    //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("Add Student Profile");
-                        drayerLayout.closeDrawer(GravityCompat.START);
+                        temp=new StudentProfileFrag();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
+                        toolbar_Student.setTitle("Monthly Attendance");
+                        drawerlayout_student.closeDrawer(GravityCompat.START);
                         break;
-
-
 
 
                     case R.id.nav_Studentlogout:
-                        Toast.makeText(StudentDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
-                        Intent logoutIntent=new Intent(StudentDashboard.this,StudentLoginScreen.class);
-                        startActivity(logoutIntent);
+                        drawerlayout_student.closeDrawer(GravityCompat.START);
+                        Intent logout_intent=new Intent(StudentDashboard.this,StudentLoginScreen.class);
+                        startActivity(logout_intent);
                         finish();
-                        drayerLayout.closeDrawer(GravityCompat.START);
                         break;
+
 
 
 
                 }
+
+
+
                 return false;
             }
         });
+
+
 
 
     }
