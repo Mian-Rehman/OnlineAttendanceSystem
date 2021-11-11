@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -39,6 +40,8 @@ public class AdminDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
+
+
         Toolbar toolbar=findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,7 +69,14 @@ public class AdminDashboard extends AppCompatActivity {
                     case R.id.nav_teacher_profile:
                       temp=new AdminTeacherProfileFrag();
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("Teacher Profile");
+                        toolbar.setTitle("Add Teacher Profile");
+                        drayerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.nav_stud_profile:
+                        temp=new StudentClassListFrag();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
+                        toolbar.setTitle("Add Student Profile");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -76,6 +86,24 @@ public class AdminDashboard extends AppCompatActivity {
                         toolbar.setTitle("Add Classes");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
+
+
+                    case R.id.nav_show_teacher:
+
+                       Intent showTeacherIntent= new Intent(AdminDashboard.this,ShowTeacherScreen.class);
+                        startActivity(showTeacherIntent);
+                        drayerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.nav_show_student:
+
+
+                        Intent showStudentIntent= new Intent(AdminDashboard.this,AdminShowStudents.class);
+                       startActivity(showStudentIntent);
+                        drayerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+
 
                     case R.id.nav_logout:
                         Toast.makeText(AdminDashboard.this, "Logout", Toast.LENGTH_SHORT).show();

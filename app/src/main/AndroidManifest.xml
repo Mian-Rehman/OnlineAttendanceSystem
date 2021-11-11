@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineAttendenceSystem">
-        <activity android:name=".OneTimeStudentActivity"></activity>
+        <activity android:name=".ShowTeacherScreen"></activity>
+        <activity android:name=".AdminShowStudents" />
+        <activity android:name=".AdminAddStudentProf" />
+        <activity android:name=".OneTimeStudentActivity" />
         <activity android:name=".StudentDashboard" />
         <activity android:name=".TeacherForgotScreen" />
         <activity android:name=".TeacherDashboardScreen" />
@@ -28,9 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ConfirmScreen" />
-        <activity android:name=".MainActivity" >
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

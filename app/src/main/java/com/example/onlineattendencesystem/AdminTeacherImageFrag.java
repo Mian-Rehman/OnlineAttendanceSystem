@@ -55,79 +55,8 @@ public class AdminTeacherImageFrag extends Fragment {
 
 
 
-
-
-
         return v;
     }
-
-
-
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLARY_PIC_REQUEST&&resultCode== getActivity().RESULT_OK){
-            imageUri=data.getData();
-            Picasso.with(getActivity()).load(imageUri).into(imageFromGallary);
-            setToFireStorage(imageUri);
-        }
-        
-    }
-
-    @SuppressWarnings("deprecation")
-    public void openGallery(View view)
-    {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        startActivityForResult(intent, GALLARY_PIC_REQUEST);
-    }
-
-    @SuppressWarnings("deprecation")
-    public void openCamera(View view)
-    {
-        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
-    }
-
-
-    private void setToFireStorage(Uri imageUri) {
-
-        SharedPreferences sp=getActivity().getSharedPreferences("Teacher_Key", Context.MODE_PRIVATE);
-        String key=sp.getString("teacherID","");
-
-
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference().child("teacherImage");
-        final StorageReference ImageReference=storageReference.child("112233");
-        ImageReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                ImageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        DatabaseReference db= FirebaseDatabase.getInstance().getReference("teacherData")
-                                .child("teacherId");
-                        db.child("teacherImage").setValue(uri.toString());
-                        Toast.makeText(getActivity(), "Successfully added to real time", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
 
 
 }

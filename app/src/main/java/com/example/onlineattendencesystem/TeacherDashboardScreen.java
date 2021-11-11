@@ -68,12 +68,6 @@ public class TeacherDashboardScreen extends AppCompatActivity {
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_teacher_addStudent:
-                        temp = new TeacherAddStudentFrag();
-                       getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-                        toolbar.setTitle("Add Student Profile");
-                        drayerLayout.closeDrawer(GravityCompat.START);
-                        break;
 
                     case R.id.nav_teacher_stAttendence:
                         temp = new AddStudentAttFrag();

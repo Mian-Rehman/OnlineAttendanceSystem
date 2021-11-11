@@ -2,18 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Teacher Profile"
-
+    <item android:title="Add Teacher Profile"
+        android:icon="@drawable/ic_teac_student_atten"
         android:id="@+id/nav_teacher_profile"
         />
 
+    <item android:title="Add Student Profile"
+        android:icon="@drawable/ic_add_student"
+        android:id="@+id/nav_stud_profile"
+        />
+
     <item android:title="Add Classes"
-        android:icon="@drawable/ic_menu_book"
+        android:icon="@drawable/ic_add_class"
         android:id="@+id/nav_add_class"
+        />
+    <item android:title="Show Teachers List"
+        android:icon="@drawable/ic_show_teacher"
+        android:id="@+id/nav_show_teacher"
+        />
+
+    <item android:title="Show Students"
+        android:icon="@drawable/ic_show_student"
+        android:id="@+id/nav_show_student"
         />
 
     <item android:title="Logout"
-
+        android:icon="@drawable/ic_logout"
         android:id="@+id/nav_logout"
         />
 

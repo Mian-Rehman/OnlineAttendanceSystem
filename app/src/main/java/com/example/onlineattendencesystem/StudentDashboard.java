@@ -30,6 +30,7 @@ public class StudentDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
 
+
         Toolbar toolbar_Student=findViewById(R.id.toolbar_Student);
         setSupportActionBar(toolbar_Student);
 

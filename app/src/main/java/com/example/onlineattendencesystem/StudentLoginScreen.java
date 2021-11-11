@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.onlineattendencesystem.Model.StudentDataClass;
 import com.example.onlineattendencesystem.Model.TeacherClassData;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,9 @@ public class StudentLoginScreen extends AppCompatActivity {
     EditText ed_user,ed_password;
 
     ImageView Teacher_back;
+
+
+
 
 
     @Override
@@ -51,6 +56,9 @@ public class StudentLoginScreen extends AppCompatActivity {
         //Type casting Textview
         tv_forgot_password=findViewById(R.id.tv_forgot_password);
 
+
+
+
         Teacher_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +69,9 @@ public class StudentLoginScreen extends AppCompatActivity {
         });
 
 
+
+
+
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,11 +80,12 @@ public class StudentLoginScreen extends AppCompatActivity {
                 String login_StudentId=ed_user.getText().toString().trim();
                 String login_student_password=ed_password.getText().toString().trim();
 
-                Query checkuser=reference.orderByChild("studentId").equalTo(login_StudentId);
+                Query checkuser=reference.orderByChild("studentData").equalTo(login_StudentId);
 
                 checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    public void onDataChange(@NonNull DataSnapshot snapshot)
+                    {
 
 
 
@@ -109,7 +121,7 @@ public class StudentLoginScreen extends AppCompatActivity {
                                     if (FirstTime.equals("Yes"))
                                     {
 
-                                     //   Toast.makeText(StudentLoginScreen.this, "Working", Toast.LENGTH_SHORT).show();
+                                        //   Toast.makeText(StudentLoginScreen.this, "Working", Toast.LENGTH_SHORT).show();
                                         Intent Dashintent=new Intent(StudentLoginScreen.this,StudentDashboard.class);
                                         startActivity(Dashintent);
                                         finish();

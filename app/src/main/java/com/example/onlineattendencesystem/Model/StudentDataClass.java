@@ -7,16 +7,18 @@ public class StudentDataClass {
     String studentDateOfBirth;
     String studentQualification;
     String studentPassword;
+    String className;
 
-    public StudentDataClass() {
-    }
-
-    public StudentDataClass(String studentName, String studentId, String studentDateOfBirth, String studentQualification, String studentPassword) {
+    public StudentDataClass(String studentName, String studentId, String studentDateOfBirth, String studentQualification, String studentPassword, String className) {
         this.studentName = studentName;
         this.studentId = studentId;
         this.studentDateOfBirth = studentDateOfBirth;
         this.studentQualification = studentQualification;
         this.studentPassword = studentPassword;
+        this.className = className;
+    }
+
+    public StudentDataClass() {
     }
 
     public String getStudentName() {
@@ -57,5 +59,13 @@ public class StudentDataClass {
 
     public void setStudentPassword(String studentPassword) {
         this.studentPassword = studentPassword;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }

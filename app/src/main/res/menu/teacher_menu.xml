@@ -11,10 +11,7 @@
         android:id="@+id/nav_teacher_attendence"
         />
 
-    <item android:title="Add Student Profile"
-    android:icon="@drawable/ic_add_student"
-        android:id="@+id/nav_teacher_addStudent"
-        />
+
 
     <item android:title="Add Student Attendence"
     android:icon="@drawable/ic_teac_student_atten"
