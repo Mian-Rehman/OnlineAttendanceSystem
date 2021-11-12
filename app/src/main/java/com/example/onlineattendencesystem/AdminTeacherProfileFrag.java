@@ -1,6 +1,7 @@
 package com.example.onlineattendencesystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -293,9 +294,8 @@ public class AdminTeacherProfileFrag extends Fragment {
                                 ed_password_t.setText("");
                                 ed_confirm_pass_t.setText("");
                                 Toast.makeText(getActivity(), "Profile Saved!", Toast.LENGTH_SHORT).show();
-                                temp=new AdminTeacherImageFrag();
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
-
+                                Intent intent = new Intent(getActivity(),AdminTeacherImageSCR.class);
+                                startActivity(intent);
                             }
                             else
                             {

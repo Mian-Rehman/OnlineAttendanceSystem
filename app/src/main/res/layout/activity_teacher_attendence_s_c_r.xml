@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".TeacherAttendenceSCR">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take Your Attendance"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:textColor="@color/Mahroon"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Face Verification"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:textColor="@color/Mahroon"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imagefromcam"
+                android:paddingRight="10dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:src="@drawable/profile"
+                />
+            <ImageView
+                android:paddingLeft="10dp"
+                android:id="@+id/imageFromDatabase"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:src="@drawable/profile"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Result : "
+            android:textColor="@color/Mahroon"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:padding="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_signup_btn"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
