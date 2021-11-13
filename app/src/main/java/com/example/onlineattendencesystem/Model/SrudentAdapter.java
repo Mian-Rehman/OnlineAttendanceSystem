@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -70,6 +71,8 @@ public class SrudentAdapter extends FirebaseRecyclerAdapter<StudentDataClass,Sru
                 password.setText(model.getStudentPassword());
 
                 dialogPlus.show();
+
+
 
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override

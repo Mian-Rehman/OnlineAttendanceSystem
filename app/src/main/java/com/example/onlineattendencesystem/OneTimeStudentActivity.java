@@ -75,10 +75,17 @@ public class OneTimeStudentActivity extends AppCompatActivity {
                                     String key= reference.child(studentId).getKey();
                                     reference.child(key).child("studentPassword").setValue(studentPassword);
                                     Toast.makeText(OneTimeStudentActivity.this, "Password Changed", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent=new Intent(OneTimeStudentActivity.this,StudentDashboard.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                                 else
                                 {
-                                    Toast.makeText(OneTimeStudentActivity.this, "Password Wrong", Toast.LENGTH_SHORT).show();
+                                    ed_change_password.setError("Password Not Match");
+                                    ed_change_password.requestFocus();
+                                    ed_change_password.setText("");
+                                    ed_change_password_con.setText("");
                                 }
                             }
 

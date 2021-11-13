@@ -117,7 +117,7 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                face_detector(oribitmap,"orignal");
+
                 double distance=calculate_distance(ori_embedding,test_embedding);
 
                 if(distance<6.0)
@@ -147,7 +147,7 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
                 bytes= Base64.decode(teacimage, Base64.DEFAULT);
                 oribitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
                 imageFromDatabase.setImageBitmap(oribitmap);
-
+                face_detector(oribitmap,"original");
             }
 
             @Override
