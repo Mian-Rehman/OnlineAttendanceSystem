@@ -24,19 +24,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import com.google.firebase.database.ValueEventListener;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
-
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.Interpreter;
@@ -50,13 +49,12 @@ import org.tensorflow.lite.support.image.ops.ResizeWithCropOrPadOp;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-
-
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.List;
 
-public class TeacherAttendenceSCR extends AppCompatActivity {
+public class StudentAttendanceSCR extends AppCompatActivity {
+
 
     protected Interpreter tflite;
     private  int imageSizeX;
@@ -72,18 +70,16 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
     float[][] ori_embedding = new float[1][128];
     float[][] test_embedding = new float[1][128];
 
-    String teacimage;
+    String studimage;
 
     TextView result_text;
     ImageView imagefromcam,imageFromDatabase;
     Button verify;
 
-
-    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_attendence_s_c_r);
+        setContentView(R.layout.activity_student_attendance_s_c_r);
 
         verify=findViewById(R.id.verify);
         result_text=findViewById(R.id.result);
@@ -91,8 +87,30 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
         imageFromDatabase=findViewById(R.id.imageFromDatabase);
 
 
-        if (ContextCompat.checkSelfPermission(TeacherAttendenceSCR.this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(TeacherAttendenceSCR.this, new String[]{
+        SharedPreferences sp=getSharedPreferences("STUDENT_DATA",MODE_PRIVATE);
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("studentImage");
+        String studentID=sp.getString("studentID","");
+
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                studimage = snapshot.child(studentID).child("newImage").getValue(String.class);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bytes = byteArrayOutputStream.toByteArray();
+                bytes= Base64.decode(studimage, Base64.DEFAULT);
+                oribitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                imageFromDatabase.setImageBitmap(oribitmap);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        if (ContextCompat.checkSelfPermission(StudentAttendanceSCR.this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(StudentAttendanceSCR.this, new String[]{
                     Manifest.permission.CAMERA
 
             }, 100);
@@ -111,7 +129,6 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
                 startActivityForResult(intent,100);
             }
         });
-        retrieveimage();
 
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,35 +144,6 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
             }
 
         });
-
-
-
-    }
-
-    private void retrieveimage()
-    {
-        SharedPreferences sp=getSharedPreferences("TEACHER_DATA",MODE_PRIVATE);
-
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("teacherImage");
-        String teacherId= sp.getString("teacherID","");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                teacimage = snapshot.child(teacherId).child("newImage").getValue(String.class);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] bytes = byteArrayOutputStream.toByteArray();
-                bytes= Base64.decode(teacimage, Base64.DEFAULT);
-                oribitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                imageFromDatabase.setImageBitmap(oribitmap);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
 
     }
 
@@ -254,6 +242,4 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
         else if (imagetype.equals("test"))
             test_embedding=embedding;
     }
-
-
 }

@@ -74,6 +74,7 @@ public class OneTimeStudentActivity extends AppCompatActivity {
                                 {
                                     String key= reference.child(studentId).getKey();
                                     reference.child(key).child("studentPassword").setValue(studentPassword);
+                                    Toast.makeText(OneTimeStudentActivity.this, "Password Changed", Toast.LENGTH_SHORT).show();
                                 }
                                 else
                                 {

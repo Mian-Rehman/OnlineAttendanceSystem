@@ -80,14 +80,12 @@ public class StudentLoginScreen extends AppCompatActivity {
                 String login_StudentId=ed_user.getText().toString().trim();
                 String login_student_password=ed_password.getText().toString().trim();
 
-                Query checkuser=reference.orderByChild("studentData").equalTo(login_StudentId);
+                Query checkuser=reference.orderByChild("studentId").equalTo(login_StudentId);
 
                 checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot)
                     {
-
-
 
                         if (snapshot.exists())
                         {

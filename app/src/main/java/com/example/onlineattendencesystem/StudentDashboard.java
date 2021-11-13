@@ -61,8 +61,9 @@ public class StudentDashboard extends AppCompatActivity {
 
 
                     case R.id.nav_student_attendence:
-                        temp=new StudentProfileFrag();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
+
+                        Intent studentAttIntent=new Intent(StudentDashboard.this,StudentAttendanceSCR.class);
+                        startActivity(studentAttIntent);
                         toolbar_Student.setTitle("My Attendance");
                         drawerlayout_student.closeDrawer(GravityCompat.START);
                         break;

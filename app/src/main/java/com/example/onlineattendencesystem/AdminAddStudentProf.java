@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -220,6 +222,8 @@ public class AdminAddStudentProf extends AppCompatActivity {
                                 String key= myRef.child(studentId).getKey();
                                 myRef.child(key).setValue(dataClass);
 
+
+
                                 ed_name_st.setText("");
                                 ed_name_st.requestFocus();
                                 ed_Id_st.setText("");
@@ -227,8 +231,14 @@ public class AdminAddStudentProf extends AppCompatActivity {
                                 ed_tech_qual.setText("");
                                 ed_password_t.setText("");
                                 ed_confirm_pass_t.setText("");
-                                Toast.makeText(AdminAddStudentProf.this, "Profile Saved!", Toast.LENGTH_SHORT).show();
 
+                                SharedPreferences preferences=getSharedPreferences("STUDENT_IMAGE_KEY",MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("STUDENT_ID_IMAGE",key);
+                                editor.apply();
+                                Toast.makeText(AdminAddStudentProf.this, "Profile Saved!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(AdminAddStudentProf.this,AdminStudentImageSCR.class);
+                                startActivity(intent);
                             }
                             else
                             {

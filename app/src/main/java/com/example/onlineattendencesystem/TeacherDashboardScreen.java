@@ -62,8 +62,9 @@ public class TeacherDashboardScreen extends AppCompatActivity {
                         break;
 
                     case R.id.nav_teacher_attendence:
-                        temp=new TeacherAttendanceScreen();
-                       getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
+                        Intent attendenceintent = new
+                                Intent(TeacherDashboardScreen.this,TeacherAttendenceSCR.class);
+                        startActivity(attendenceintent);
                         toolbar.setTitle("My Attendence");
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.onlineattendencesystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,8 +13,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OnlineAttendenceSystem">
-        <activity android:name=".TeacherAttendenceSCR"></activity>
+        android:theme="@style/Theme.OnlineAttendenceSystem"
+        tools:ignore="ExtraText">
+        <activity android:name=".StudentAttendanceSCR"></activity>
+        <activity android:name=".AdminStudentImageSCR" />
+        <activity
+            android:name=".TeacherAttendenceSCR"
+            android:exported="true" />
         <activity android:name=".AdminTeacherImageSCR" />
         <activity android:name=".ShowTeacherScreen" />
         <activity android:name=".AdminShowStudents" />
@@ -26,14 +32,16 @@
         <activity android:name=".AdminLoginScreen" />
         <activity android:name=".TeacherLoginScreen" />
         <activity android:name=".StudentLoginScreen">
+
+        </activity>
+        <activity android:name=".ConfirmScreen" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConfirmScreen" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

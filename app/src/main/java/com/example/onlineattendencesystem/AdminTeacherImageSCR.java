@@ -39,18 +39,12 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
     ImageView img_teacher;
     Button btn_gallery,btn_camera,btn_upload;
 
-    Bitmap galbitmap,cambitmap;
-    Uri imageuri,imageurica;
+    Bitmap galbitmap;
+    Uri imageuri;
 
     String sImage;
 
-    private StorageReference storageReference;
-    private DatabaseReference databaseReference;
 
-    private ValueEventListener valueEventListener;
-
-    FirebaseDatabase database;
-    DatabaseReference myRef;
 
 
     @Override
@@ -63,8 +57,7 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
         btn_upload = findViewById(R.id.btn_upload);
         img_teacher = findViewById(R.id.img_teacher);
 
-        database=FirebaseDatabase.getInstance();
-        myRef=database.getReference("teacherData6");
+
 
         if (ContextCompat.checkSelfPermission(AdminTeacherImageSCR.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(AdminTeacherImageSCR.this, new String[]{
@@ -91,16 +84,18 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 12);
+                btn_upload.setVisibility(View.VISIBLE);
             }
         });
 
-        SharedPreferences sp=getSharedPreferences("Teacher_Key", Context.MODE_PRIVATE);
 
-        String teacherKey=sp.getString("teacher_ID","");
 
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences sp=getSharedPreferences("Teacher_Key", Context.MODE_PRIVATE);
+                String teacherKey=sp.getString("teacherID","");
                 DatabaseReference reference=FirebaseDatabase.getInstance().getReference("teacherImage")
                         ;
                 //    Query query=reference.orderByChild("teacherId").equalTo(teacherKey);
@@ -127,9 +122,12 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
 
     }
 
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==12 && resultCode==RESULT_OK && data!=null) {
+        if(requestCode==12 && resultCode==RESULT_OK && data!=null)
+        {
             imageuri = data.getData();
             try {
                 galbitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageuri);
@@ -139,7 +137,9 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
                 sImage = Base64.encodeToString(bytes,Base64.DEFAULT);
                 img_teacher.setImageBitmap(galbitmap);
 
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
         }

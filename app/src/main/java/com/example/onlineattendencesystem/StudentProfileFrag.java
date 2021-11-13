@@ -33,7 +33,7 @@ public class StudentProfileFrag extends Fragment {
         tv_student_Qual=v.findViewById(R.id.tv_student_Qual);
         tv_student_pass=v.findViewById(R.id.tv_student_pass);
 
-        SharedPreferences sp=getActivity().getSharedPreferences("TEACHER_DATA", Context.MODE_PRIVATE);
+        SharedPreferences sp=getActivity().getSharedPreferences("STUDENT_DATA", Context.MODE_PRIVATE);
 
         tv_student_name.setText(sp.getString("studentName",""));
         tv_student_Id.setText(sp.getString("studentID",""));
