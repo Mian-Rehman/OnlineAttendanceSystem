@@ -53,7 +53,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
 
 
 
-        holder.tv_className.setText("Class Year: "+user.getClassYear());
+        holder.tv_className.setText("Class Session: "+user.getClassYear());
         holder.tv_classYear.setText("Class Name: "+user.getAddClass());
 
         holder.view.setOnClickListener(new View.OnClickListener() {

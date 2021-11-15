@@ -8,17 +8,35 @@
     android:id="@+id/main_linear"
     tools:context=".AdminShowStudents">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_Student_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        app:menu="@menu/search_menu"
-        app:title="Student List"
-        android:backgroundTint="@color/Mahroon"
-        android:background="@color/Mahroon"
-        >
-    </com.google.android.material.appbar.MaterialToolbar>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="10dp"
+      android:background="@color/Mahroon"
+      android:gravity="start|center"
+
+      >
+
+
+          <ImageView
+              android:id="@+id/admin_studentlist_back"
+              android:layout_width="26sp"
+              android:layout_height="26dp"
+              android:src="@drawable/ic_back_white"
+              />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Student List"
+          android:textSize="18sp"
+          android:fontFamily="sans-serif-black"
+          android:textColor="@color/white"
+          android:layout_marginLeft="20dp"
+          />
+
+  </LinearLayout>
 
 
     <LinearLayout

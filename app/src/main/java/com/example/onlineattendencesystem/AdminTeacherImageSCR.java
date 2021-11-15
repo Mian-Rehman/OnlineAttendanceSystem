@@ -36,7 +36,7 @@ import java.io.IOException;
 
 public class AdminTeacherImageSCR extends AppCompatActivity {
 
-    ImageView img_teacher;
+    ImageView img_teacher,admin_teacherImage_back;
     Button btn_gallery,btn_camera,btn_upload;
 
     Bitmap galbitmap;
@@ -56,6 +56,16 @@ public class AdminTeacherImageSCR extends AppCompatActivity {
         btn_camera = findViewById(R.id.btn_camera);
         btn_upload = findViewById(R.id.btn_upload);
         img_teacher = findViewById(R.id.img_teacher);
+        admin_teacherImage_back = findViewById(R.id.admin_teacherImage_back);
+
+        admin_teacherImage_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(AdminTeacherImageSCR.this,AdminDashboard.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
 
 
 

@@ -7,11 +7,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -39,6 +43,8 @@ public class StudentDashboard extends AppCompatActivity {
 
     //   getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new StudentDashHomeFrag()).commit();
 
+       temp=new StudentProfileFrag();
+       getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
 
         toggle=new ActionBarDrawerToggle(this,drawerlayout_student,toolbar_Student,R.string.app_name,R.string.app_name);
         drawerlayout_student.addDrawerListener(toggle);
@@ -70,8 +76,12 @@ public class StudentDashboard extends AppCompatActivity {
 
 
                     case R.id.nav_student_MonthAtten:
-                        temp=new StudentProfileFrag();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
+
+                        Intent showIntent=new Intent(StudentDashboard.this,StudentShowAttendanceSCR.class);
+                        startActivity(showIntent);
+
+                      //  temp=new StudentProfileFrag();
+                      //  getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_Student,temp).commit();
                         toolbar_Student.setTitle("Monthly Attendance");
                         drawerlayout_student.closeDrawer(GravityCompat.START);
                         break;
@@ -79,7 +89,7 @@ public class StudentDashboard extends AppCompatActivity {
 
                     case R.id.nav_Studentlogout:
                         drawerlayout_student.closeDrawer(GravityCompat.START);
-                        Intent logout_intent=new Intent(StudentDashboard.this,StudentLoginScreen.class);
+                        Intent logout_intent=new Intent(StudentDashboard.this,ConfirmScreen.class);
                         startActivity(logout_intent);
                         finish();
                         break;
@@ -95,7 +105,10 @@ public class StudentDashboard extends AppCompatActivity {
             }
         });
 
-
+         LayoutInflater inflater=getLayoutInflater();
+         View view=inflater.inflate(R.layout.drawer_header,null);
+        TextView pro_name_set=view.findViewById(R.id.tv_dash_profile);
+        pro_name_set.setText("Name");
 
 
     }

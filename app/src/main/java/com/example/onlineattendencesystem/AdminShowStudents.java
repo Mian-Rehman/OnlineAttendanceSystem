@@ -1,10 +1,13 @@
 package com.example.onlineattendencesystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -34,6 +37,8 @@ public class AdminShowStudents extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
 
+    ImageView admin_studentlist_back;
+
 
 
 
@@ -43,8 +48,16 @@ public class AdminShowStudents extends AppCompatActivity {
         setContentView(R.layout.activity_admin_show_students);
         setTitle("");
 
-        Toolbar toolbar_Student_search=findViewById(R.id.toolbar_Student_search);
-        setSupportActionBar(toolbar_Student_search);
+        admin_studentlist_back=findViewById(R.id.admin_studentlist_back);
+
+        admin_studentlist_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent=new Intent(AdminShowStudents.this,AdminDashboard.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
 
 
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="5dp"
+    android:layout_margin="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/Mahroon"
+        android:padding="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_att_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_att_st_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student ID: "
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_att_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attendance Time: "
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_att"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attendance: "
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

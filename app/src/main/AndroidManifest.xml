@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineAttendenceSystem"
         tools:ignore="ExtraText">
-        <activity android:name=".StudentAttendanceSCR"></activity>
+        <activity android:name=".StudentShowAttendanceSCR"></activity>
+        <activity android:name=".StudentAttendanceCompleteSCR"></activity>
+        <activity android:name=".TeacherAttendanceCompleteSCR" />
+        <activity android:name=".StudentAttendanceSCR" />
         <activity android:name=".AdminStudentImageSCR" />
         <activity
             android:name=".TeacherAttendenceSCR"
@@ -31,11 +34,9 @@
         <activity android:name=".AdminDashboard" />
         <activity android:name=".AdminLoginScreen" />
         <activity android:name=".TeacherLoginScreen" />
-        <activity android:name=".StudentLoginScreen">
-
-        </activity>
+        <activity android:name=".StudentLoginScreen" />
         <activity android:name=".ConfirmScreen" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

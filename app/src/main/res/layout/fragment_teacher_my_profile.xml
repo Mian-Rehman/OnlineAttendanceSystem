@@ -14,41 +14,15 @@
        android:layout_marginTop="10dp"
        >
 
-       <ImageView
-           android:id="@+id/img_student"
-           android:layout_width="150dp"
-           android:layout_height="150dp"
-           android:layout_marginTop="10dp"
-           android:src="@drawable/profile"
-           />
-
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:padding="10dp"
-           android:layout_marginTop="10dp"
-           >
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Teacher Name:"
-               android:textSize="14sp"
-               android:textColor="@color/black"
-               android:fontFamily="sans-serif-black"
-               />
-           <TextView
-               android:id="@+id/tv_teacher_name"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Rehman Amjad"
-               android:textSize="14sp"
-               android:textColor="@color/black"
-               android:layout_marginLeft="20dp"
-               />
-       </LinearLayout>
+       <de.hdodenhof.circleimageview.CircleImageView
+           xmlns:app="http://schemas.android.com/apk/res-auto"
+           android:id="@+id/img_prof_tech"
+           android:layout_width="120dp"
+           android:layout_height="120dp"
+           app:civ_border_width="5dp"
+           android:layout_gravity="center"
+           app:civ_border_color="@color/Mahroon"
+           tools:ignore="RedundantNamespace" />
 
        <LinearLayout
            android:layout_width="match_parent"
@@ -58,11 +32,18 @@
            android:layout_marginTop="5dp"
            >
 
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/ic_user_inactive_focused"
+               />
+
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Teacher ID:"
                android:textSize="14sp"
+               android:layout_marginLeft="5dp"
                android:textColor="@color/black"
                android:fontFamily="sans-serif-black"
                />
@@ -77,6 +58,43 @@
                />
        </LinearLayout>
 
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:padding="10dp"
+           android:layout_marginTop="10dp"
+           >
+
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/username_signup_focus"
+               />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Teacher Name:"
+               android:textSize="14sp"
+               android:layout_marginLeft="5dp"
+               android:textColor="@color/black"
+               android:fontFamily="sans-serif-black"
+               />
+           <TextView
+               android:id="@+id/tv_teacher_name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Rehman Amjad"
+               android:textSize="14sp"
+               android:textColor="@color/black"
+               android:layout_marginLeft="20dp"
+               />
+       </LinearLayout>
+
+
+
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -85,11 +103,18 @@
            android:layout_marginTop="5dp"
            >
 
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/ic_email_focus"
+               />
+
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Teacher Email:"
                android:textSize="14sp"
+               android:layout_marginLeft="5dp"
                android:textColor="@color/black"
                android:fontFamily="sans-serif-black"
                />
@@ -111,12 +136,18 @@
            android:padding="10dp"
            android:layout_marginTop="5dp"
            >
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/ic_date_focus"
+               />
 
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Teacher DOB:"
                android:textSize="14sp"
+               android:layout_marginLeft="5dp"
                android:textColor="@color/black"
                android:fontFamily="sans-serif-black"
                />
@@ -139,11 +170,18 @@
            android:layout_marginTop="5dp"
            >
 
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/ic_school_focus"
+               />
+
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Teacher Qualification:"
                android:textSize="14sp"
+               android:layout_marginLeft="5dp"
                android:textColor="@color/black"
                android:fontFamily="sans-serif-black"
                />
@@ -166,11 +204,18 @@
            android:layout_marginTop="5dp"
            >
 
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="24dp"
+               android:src="@drawable/ic_lock_focus"
+               />
+
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Teacher Password:"
                android:textSize="14sp"
+               android:layout_marginLeft="5dp"
                android:textColor="@color/black"
                android:fontFamily="sans-serif-black"
                />

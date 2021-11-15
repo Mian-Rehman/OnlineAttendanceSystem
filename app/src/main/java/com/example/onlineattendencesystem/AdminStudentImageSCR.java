@@ -34,7 +34,7 @@ import java.io.IOException;
 
 public class AdminStudentImageSCR extends AppCompatActivity {
 
-    ImageView img_student;
+    ImageView img_student,admin_studentImage_back;
     Button btn_gallery_student,btn_upload_student;
 
     Bitmap galbitmap_st;
@@ -53,6 +53,18 @@ public class AdminStudentImageSCR extends AppCompatActivity {
         btn_upload_student = findViewById(R.id.btn_upload_student);
 
         img_student = findViewById(R.id.img_student);
+        admin_studentImage_back = findViewById(R.id.admin_studentImage_back);
+
+
+        admin_studentImage_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(AdminStudentImageSCR.this,AdminDashboard.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
+
 
 
         if (ContextCompat.checkSelfPermission(AdminStudentImageSCR.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

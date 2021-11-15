@@ -73,7 +73,7 @@ public class StudentAttendanceSCR extends AppCompatActivity {
     String studimage;
 
     TextView result_text;
-    ImageView imagefromcam,imageFromDatabase;
+    ImageView imagefromcam,imageFromDatabase,stdAtt_back;
     Button verify;
 
     @Override
@@ -85,6 +85,17 @@ public class StudentAttendanceSCR extends AppCompatActivity {
         result_text=findViewById(R.id.result);
         imagefromcam=findViewById(R.id.imagefromcam);
         imageFromDatabase=findViewById(R.id.imageFromDatabase);
+        stdAtt_back=findViewById(R.id.stdAtt_back);
+
+
+        stdAtt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(StudentAttendanceSCR.this,StudentDashboard.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
 
 
         SharedPreferences sp=getSharedPreferences("STUDENT_DATA",MODE_PRIVATE);
@@ -101,6 +112,11 @@ public class StudentAttendanceSCR extends AppCompatActivity {
                 bytes= Base64.decode(studimage, Base64.DEFAULT);
                 oribitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
                 imageFromDatabase.setImageBitmap(oribitmap);
+
+                SharedPreferences preferences=getSharedPreferences("STD_ATT_IMF_URL",MODE_PRIVATE);
+                SharedPreferences.Editor ed=preferences.edit();
+                ed.putString("STDATT_LINK",studimage);
+                ed.apply();
             }
 
             @Override
@@ -120,6 +136,8 @@ public class StudentAttendanceSCR extends AppCompatActivity {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+
         imagefromcam.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("deprecation")
             @Override
@@ -130,21 +148,66 @@ public class StudentAttendanceSCR extends AppCompatActivity {
             }
         });
 
+        retrieveimage();
+
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                face_detector(oribitmap,"orignal");
                 double distance=calculate_distance(ori_embedding,test_embedding);
 
                 if(distance<6.0)
-                    result_text.setText("Result : Same Faces");
+                {
+
+                }
+
                 else
-                    result_text.setText("Result : Different Faces");
+                {
+                    result_text.setText("Result : Same Faces");
+                    Intent comp_intent=new Intent(StudentAttendanceSCR.this,StudentAttendanceCompleteSCR.class);
+                    startActivity(comp_intent);
+
+                 //   Toast.makeText(StudentAttendanceSCR.this, "Face Not Match", Toast.LENGTH_SHORT).show();
+                  //  result_text.setText("Result : Face Not Match Try Again");
+
+
+                    //  Intent back_intent=new Intent(StudentAttendanceSCR.this,StudentDashboard.class);
+                  //  startActivity(back_intent);
+                  //  finish();
+
+                }
+
             }
 
         });
 
+    }
+
+    private void retrieveimage()
+    {
+        SharedPreferences sp=getSharedPreferences("STUDENT_DATA",MODE_PRIVATE);
+
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("studentImage");
+        String studentId= sp.getString("studentID","");
+
+        //listner for retrive image from database
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                studimage = snapshot.child(studentId).child("newImage").getValue(String.class);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bytes = byteArrayOutputStream.toByteArray();
+                bytes= Base64.decode(studimage, Base64.DEFAULT);
+                oribitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                imageFromDatabase.setImageBitmap(oribitmap);
+                face_detector(oribitmap,"original");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private double calculate_distance(float[][] ori_embedding, float[][] test_embedding) {

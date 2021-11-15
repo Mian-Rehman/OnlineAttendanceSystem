@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/white"
+    tools:context=".StudentAttendanceCompleteSCR">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:gravity="center|top"
+        android:padding="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attendance Successfully"
+            android:textSize="22sp"
+            android:textColor="@color/Mahroon"
+            android:fontFamily="sans-serif-black"
+            android:padding="5dp"
+            />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginTop="30dp"
+    >
+
+    <Button
+        android:id="@+id/btn_com_dash"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+
+        android:layout_marginRight="5dp"
+        android:textColor="@color/Mahroon"
+        android:background="@drawable/custom_login_button"
+        />
+
+    <Button
+        android:id="@+id/btn_com_logout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_signup_btn"
+        />
+</LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

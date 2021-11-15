@@ -37,7 +37,8 @@ public class TeacherDashboardScreen extends AppCompatActivity {
         drayerLayout=findViewById(R.id.drawerlayout);
 
         //    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new AdminTeacherProfileFrag()).commit();
-
+        temp=new TeacherMyProfileFrag();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,temp).commit();
 
         toggle=new ActionBarDrawerToggle(this,drayerLayout,toolbar,R.string.app_name,R.string.app_name);
         drayerLayout.addDrawerListener(toggle);
@@ -80,7 +81,7 @@ public class TeacherDashboardScreen extends AppCompatActivity {
 
                     case R.id.nav_logout:
                         Toast.makeText(TeacherDashboardScreen.this, "Logout", Toast.LENGTH_SHORT).show();
-                        Intent logoutIntent=new Intent(TeacherDashboardScreen.this,TeacherLoginScreen.class);
+                        Intent logoutIntent=new Intent(TeacherDashboardScreen.this,ConfirmScreen.class);
                         startActivity(logoutIntent);
                         finish();
                         drayerLayout.closeDrawer(GravityCompat.START);

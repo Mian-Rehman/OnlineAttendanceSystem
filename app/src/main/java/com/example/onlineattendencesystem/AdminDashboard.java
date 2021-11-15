@@ -108,7 +108,7 @@ public class AdminDashboard extends AppCompatActivity {
                     case R.id.nav_logout:
                         Toast.makeText(AdminDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
                         drayerLayout.closeDrawer(GravityCompat.START);
-                        Intent adminLogoutIntent=new Intent(AdminDashboard.this,AdminLoginScreen.class);
+                        Intent adminLogoutIntent=new Intent(AdminDashboard.this,ConfirmScreen.class);
                         startActivity(adminLogoutIntent);
                         finish();
                         break;

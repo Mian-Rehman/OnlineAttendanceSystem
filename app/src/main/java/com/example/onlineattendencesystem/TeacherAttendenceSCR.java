@@ -75,7 +75,7 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
     String teacimage;
 
     TextView result_text;
-    ImageView imagefromcam,imageFromDatabase;
+    ImageView imagefromcam,imageFromDatabase,techAtt_back;
     Button verify;
 
 
@@ -89,6 +89,16 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
         result_text=findViewById(R.id.result);
         imagefromcam=findViewById(R.id.imagefromcam);
         imageFromDatabase=findViewById(R.id.imageFromDatabase);
+        techAtt_back=findViewById(R.id.techAtt_back);
+
+        techAtt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent=new Intent(TeacherAttendenceSCR.this,TeacherDashboardScreen.class);
+                startActivity(backIntent);
+                finish();
+            }
+        });
 
 
         if (ContextCompat.checkSelfPermission(TeacherAttendenceSCR.this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED) {
@@ -102,6 +112,8 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+
         imagefromcam.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("deprecation")
             @Override
@@ -111,6 +123,7 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
                 startActivityForResult(intent,100);
             }
         });
+
         retrieveimage();
 
         verify.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +133,23 @@ public class TeacherAttendenceSCR extends AppCompatActivity {
 
                 double distance=calculate_distance(ori_embedding,test_embedding);
 
-                if(distance<6.0)
+                if (distance<6.0)
+                {
                     result_text.setText("Result : Same Faces");
+                    Intent comp_intent=new Intent(TeacherAttendenceSCR.this,TeacherAttendanceCompleteSCR.class);
+                    startActivity(comp_intent);
+                }
                 else
-                    result_text.setText("Result : Different Faces");
+                {
+                    Toast.makeText(TeacherAttendenceSCR.this, "Face Not Match", Toast.LENGTH_SHORT).show();
+                    result_text.setText("Result : Face Not Match");
+
+                //    Intent back_intent=new Intent(TeacherAttendenceSCR.this,TeacherDashboardScreen.class);
+                //    startActivity(back_intent);
+                //    finish();
+
+                }
+
             }
 
         });
